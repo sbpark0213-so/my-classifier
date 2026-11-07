@@ -1,0 +1,38 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; background: #f6f7f9; color: #1c2230; line-height: 1.5; }
+main { max-width: 520px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 1.3rem; margin: 0; }
+h2 { font-size: 1rem; margin: 20px 0 8px; }
+.sub { margin: 2px 0 12px; color: #5a6275; font-size: .9rem; }
+.status { font-size: .85rem; color: #5a6275; margin: 0 0 8px; }
+.status.err { color: #b3261e; }
+.tabs { display: flex; gap: 6px; margin-bottom: 14px; }
+.tab { flex: 1; padding: 10px; border: 1px solid #c8cdd8; background: #fff; border-radius: 8px; font-size: 1rem; cursor: pointer; }
+.tab.on { background: #1f4fd8; border-color: #1f4fd8; color: #fff; }
+label { display: block; font-size: .9rem; margin-bottom: 4px; }
+input[type=text] { width: 100%; padding: 10px; font-size: 1rem; border: 1px solid #c8cdd8; border-radius: 8px; }
+.row { display: flex; gap: 8px; margin-top: 10px; }
+.row .primary { margin-top: 0; flex: 1; }
+.secondary { padding: 11px 12px; font-size: .95rem; border: 1px solid #c8cdd8; border-radius: 8px; background: #fff; color: #1c2230; cursor: pointer; }
+.secondary:disabled { color: #9aa6c7; cursor: default; }
+.note { margin: 8px 0 0; font-size: .82rem; color: #5a6275; overflow-wrap: anywhere; }
+.primary { width: 100%; margin-top: 10px; padding: 11px; font-size: 1rem; border: 0; border-radius: 8px; background: #1f4fd8; color: #fff; cursor: pointer; }
+.primary:disabled { background: #9aa6c7; cursor: default; }
+.result { margin: 16px 0 0; padding: 12px; background: #fff; border: 1px solid #dde1ea; border-radius: 8px; }
+.result dt { font-size: .8rem; color: #5a6275; margin-top: 8px; }
+.result dt:first-child { margin-top: 0; }
+.result dd { margin: 0; overflow-wrap: anywhere; font-weight: 600; }
+.score { margin-top: 14px; padding: 12px; background: #fff; border: 1px solid #dde1ea; border-radius: 8px; }
+.score p { margin: 4px 0; }
+#wrong { list-style: none; margin: 0; padding: 0; }
+#wrong li { padding: 8px 0; border-top: 1px solid #e6e9f0; overflow-wrap: anywhere; font-size: .92rem; }
+#wrong .id { color: #5a6275; font-size: .8rem; }
+#wrong .diff { color: #b3261e; font-size: .85rem; }
+@media (max-width: 420px) { main { padding: 12px; } }
+
+.row .primary + .primary { margin-top: 0; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; margin-bottom: 10px; }
+th, td { text-align: left; padding: 6px 4px; border-top: 1px solid #e6e9f0; overflow-wrap: anywhere; }
+thead th { border-top: 0; color: #5a6275; font-size: .8rem; }
+tbody th { font-weight: 500; }
+#download { width: 100%; }

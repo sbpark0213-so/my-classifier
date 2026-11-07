@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eCRF 요청 분류기</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>eCRF 요청 분류기</h1>
+  <p class="sub">AI(Gemini)로 가르고, 안 되면 규칙으로 가릅니다</p>
+  <p id="status" class="status">불러오는 중…</p>
+
+  <div class="tabs" role="tablist">
+    <button id="tab-classify" class="tab on" role="tab" aria-selected="true">분류</button>
+    <button id="tab-grade" class="tab" role="tab" aria-selected="false">채점</button>
+  </div>
+
+  <section id="pane-classify">
+    <label for="input">요청 문장 한 줄</label>
+    <input id="input" type="text" autocomplete="off" placeholder="예: 비밀번호를 까먹었어요">
+    <div class="row">
+      <button id="go" class="primary">분류</button>
+      <button id="sample" class="secondary">예시 문장 넣기</button>
+    </div>
+    <p id="sample-note" class="note" hidden></p>
+    <dl id="result" class="result" hidden>
+      <dt>가린 문장</dt><dd id="r-masked"></dd>
+      <dt>칸</dt><dd id="r-cat"></dd>
+      <dt>긴급도</dt><dd id="r-urg"></dd>
+      <dt>이유</dt><dd id="r-reason"></dd>
+      <dt>판단한 쪽</dt><dd id="r-source"></dd>
+    </dl>
+  </section>
+
+  <section id="pane-grade" hidden>
+    <div class="row">
+      <button id="grade" class="primary">규칙으로 채점</button>
+      <button id="grade-ai" class="primary">AI로 채점</button>
+    </div>
+    <p id="grade-msg" class="note"></p>
+    <div id="compare" class="score" hidden>
+      <h2>규칙과 AI 나란히</h2>
+      <table>
+        <thead><tr><th></th><th>규칙</th><th>AI</th></tr></thead>
+        <tbody id="compare-body"></tbody>
+      </table>
+      <button id="download" class="secondary" hidden>AI 채점 결과 내려받기</button>
+    </div>
+    <div id="score" class="score" hidden>
+      <h2>규칙 채점</h2>
+      <p>칸 정확도 <b id="s-cat"></b></p>
+      <p>긴급도 정확도 <b id="s-urg"></b></p>
+      <p>둘 다 맞은 수 <b id="s-both"></b></p>
+      <h2>틀린 문장 (규칙)</h2>
+      <ul id="wrong"></ul>
+    </div>
+  </section>
+</main>
+<script src="mask.js"></script>
+<script src="rules.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
